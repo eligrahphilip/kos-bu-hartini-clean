@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pengguna</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li><a href="/dashboardAdmin">Dashboard Admin</a></li>
+            <li><a href="/kelolaKamar">Kelola Kamar</a></li>
+            <li><a href="/laporanKeuanganAdmin">Laporan Keuangan</a></li>
+            <li class="active"><a href="/daftarUser">Daftar Pengguna</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Daftar Pengguna Kost</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">{{username|slice:0:1|upper}}</div>
+                    <div>{{username}}</div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profileAdmin">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-cards">
+            <div class="card" style="width: 100%;">
+                <div class="card-icon" style="background-color: #34495e;">👑</div>
+                <h3>Daftar Admin</h3>
+                <div class="payment-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Pengguna</th>
+                                <th>Nama Lengkap</th>
+                                <th>Email</th>
+                                <th>Nomor Telepon</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{adminRows}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card" style="width: 100%; margin-top: 25px;">
+                <div class="card-icon" style="background-color: #3498db;">👥</div>
+                <h3>Daftar Pengguna Biasa</h3>
+                <div class="payment-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Pengguna</th>
+                                <th>Nama Lengkap</th>
+                                <th>Email</th>
+                                <th>Nomor Telepon</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{regularRows}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <a href="/dashboardAdmin" class="back-link" style="display: block; text-align: center; margin-top: 20px;">Kembali ke Dashboard</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = '{{username}}';
+            const initial = username.charAt(0).toUpperCase();
+            const avatar = document.querySelector('.user-avatar');
+            if (avatar) {
+                 avatar.textContent = initial;
+            }
+            const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            profileDropdownBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+            document.addEventListener('click', function(event) {
+                if (!profileDropdownBtn.contains(event.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

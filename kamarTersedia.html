@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kamar Kost Tersedia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/TipeKamar">Tipe Kamar</a></li>
+            <li><a href="/laporanKeuangan">Laporan Keuangan</a></li>
+            <li class="active"><a href="/kamarTersedia">Kamar Tersedia</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Kamar Kost Tersedia</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">?</div>
+                    <div>{{username}}</div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="kamar-container">
+            {{kamarList}}
+        </div>
+        
+        <a href="/dashboard" class="back-link">Kembali ke Dashboard</a>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = '{{username}}';
+            const initial = username.charAt(0).toUpperCase();
+            const avatar = document.querySelector('.user-avatar');
+            if (avatar) {
+                 avatar.textContent = initial;
+            }
+            const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            profileDropdownBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+            document.addEventListener('click', function(event) {
+                if (!profileDropdownBtn.contains(event.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang - Kos Putra Bu Hartini</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing-page">
+    <!-- Navbar -->
+    <nav class="navbar-landing">
+        <div class="logo">
+            <img src="icon-rumah.png" alt="Logo Kos Bu Hartini" class="logo-image">
+            <span>KOS BU HARTINI</span>
+        </div>
+
+        <!-- Tombol Toggle (hamburger) -->
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="tentang.html" class="active">TENTANG</a></li>
+            <li><a href="fasilitas.html">FASILITAS</a></li>
+            <li><a href="kontak.html">KONTAK</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section untuk Tentang -->
+    <section class="hero-landing">
+        <div class="hero-content">
+            <h1>Tentang Kos Putra Bu Hartini</h1>
+            <p>Mengenal lebih dekat sejarah dan visi kos kami</p>
+        </div>
+    </section>
+
+    <!-- Konten Tentang -->
+    <section class="section-landing">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Sejarah Berdirinya</h2>
+                <p>Kos Putra Bu Hartini berawal dari ide <strong>Pak Harjo</strong>, seorang dosen Universitas Multimedia Nusantara (UMN), 
+                yang melihat kebutuhan mahasiswa akan tempat tinggal yang nyaman dan terjangkau di sekitar kampus.</p>
+                
+                <p>Dengan semangat untuk membantu para mahasiswa, kos ini didirikan pada tahun 2015 dan sejak itu 
+                telah menjadi rumah bagi ratusan mahasiswa UMN yang mencari lingkungan belajar yang kondusif.</p>
+
+                <h2>Visi dan Misi</h2>
+                <div class="vision-mission">
+                    <div class="vision-card">
+                        <h3>🏠 Visi</h3>
+                        <p>Menjadi kos pilihan utama bagi mahasiswa UMN yang mengutamakan kenyamanan, kebersihan, dan lingkungan yang mendukung aktivitas akademik.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>🎯 Misi</h3>
+                        <ul>
+                            <li>Menyediakan kamar yang bersih, nyaman, dan terjangkau</li>
+                            <li>Menjaga lingkungan yang kondusif untuk belajar</li>
+                            <li>Memberikan pelayanan terbaik bagi setiap penghuni</li>
+                            <li>Menjalin hubungan kekeluargaan antar penghuni</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Filosofi "Yang penting, penghuni merasa nyaman."</h2>
+                <p>Ini bukan sekadar slogan, tetapi prinsip yang kami pegang teguh dalam setiap pelayanan. 
+                Kami percaya bahwa kenyamanan penghuni adalah kunci utama dalam menciptakan lingkungan yang sehat dan produktif.</p>
+
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <h3>16</h3>
+                        <p>Kamar Tersedia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>8+</h3>
+                        <p>Tahun Berpengalaman</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>Mahasiswa Terlayani</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Layanan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-landing">
+        <p>&copy; 2025 Kos Putra Bu Hartini | "Yang penting, penghuni merasa nyaman."</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar-landing');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

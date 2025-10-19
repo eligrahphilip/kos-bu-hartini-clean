@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas - Kos Putra Bu Hartini</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing-page">
+    <!-- Navbar -->
+    <nav class="navbar-landing">
+        <div class="logo">
+            <img src="icon-rumah.png" alt="Logo Kos Bu Hartini" class="logo-image">
+            <span>KOS BU HARTINI</span>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="tentang.html">TENTANG</a></li>
+            <li><a href="fasilitas.html" class="active">FASILITAS</a></li>
+            <li><a href="kontak.html">KONTAK</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section untuk Fasilitas -->
+    <section class="hero-landing">
+        <div class="hero-content">
+            <h1>Fasilitas Lengkap</h1>
+            <p>Semua yang Anda butuhkan untuk kenyamanan tinggal dan belajar</p>
+        </div>
+    </section>
+
+    <!-- Fasilitas Utama -->
+    <section class="section-landing">
+        <h2>Fasilitas Kamar</h2>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <div class="facility-icon">🛏️</div>
+                <h3>Kamar Nyaman</h3>
+                <p>Kamar berukuran 3x3 meter dengan tempat tidur, meja belajar, dan lemari pakaian yang nyaman</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🚪</div>
+                <h3>Jendela Luar</h3>
+                <p>Sirkulasi udara yang baik dengan jendela menghadap luar untuk pencahayaan alami</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">💡</div>
+                <h3>Penerangan Lengkap</h3>
+                <p>Lampu belajar dan lampu utama untuk mendukung aktivitas belajar di malam hari</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🔌</div>
+                <h3>Stop Kontak</h3>
+                <p>Stop kontak yang cukup untuk laptop, charger, dan peralatan elektronik lainnya</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Bersama -->
+    <section class="section-landing bg-light">
+        <h2>Fasilitas Bersama</h2>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <div class="facility-icon">🚿</div>
+                <h3>Kamar Mandi Bersih</h3>
+                <p>7 kamar mandi luar yang dibersihkan setiap hari dengan air panas tersedia</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🍳</div>
+                <h3>Dapur Lengkap</h3>
+                <p>Dapur bersama dilengkapi kompor, tabung gas, dan peralatan masak dasar</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">❄️</div>
+                <h3>Kulkas 2 Pintu</h3>
+                <p>Kulkas besar untuk menyimpan bahan makanan dan minuman semua penghuni</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">📶</div>
+                <h3>Wi-Fi Cepat</h3>
+                <p>Internet stabil dengan kecepatan tinggi untuk belajar online dan streaming</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🛵</div>
+                <h3>Parkir Luas</h3>
+                <p>Area parkir yang dapat menampung hingga 16 motor dengan aman</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🧹</div>
+                <h3>Kebersihan Terjaga</h3>
+                <p>Lingkungan yang bersih dengan jadwal pembersihan rutin setiap hari</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Keamanan -->
+    <section class="section-landing">
+        <h2>Fasilitas Keamanan</h2>
+        <div class="security-features">
+            <div class="security-item">
+                <h3>🔒 Keamanan 24 Jam</h3>
+                <p>Lingkungan yang aman dengan sistem keamanan terjaga</p>
+            </div>
+            <div class="security-item">
+                <h3>👥 Lingkungan Ramah</h3>
+                <p>Komunitas penghuni yang saling mendukung dan menghargai</p>
+            </div>
+            <div class="security-item">
+                <h3>🚨 Emergency Contact</h3>
+                <p>Kontak darurat yang dapat dihubungi kapan saja</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-landing">
+        <p>&copy; 2025 Kos Putra Bu Hartini | "Yang penting, penghuni merasa nyaman."</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar-landing');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

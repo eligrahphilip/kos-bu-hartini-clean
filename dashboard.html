@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kost | {{username}}</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li class="active"><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/TipeKamar">Tipe Kamar</a></li>
+            <li><a href="/laporanKeuangan">Laporan Keuangan</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Selamat Datang, {{username}}!</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">{{username|slice:0:1|upper}}</div>
+                    <div>{{username}}</div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h3>Kamar Tersedia</h3>
+                <p class="jumlah-tersedia">{{jumlahTersedia}}</p>
+                <p style="font-size: 1.2em;"><a href="/kamarTersedia" style="color: #9b59b6; text-decoration: none;">Lihat Kamar</a></p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Laporan Keuangan</h3>
+                <p>Pantau pembayaran dan laporan keuangan kost.</p>
+                <p style="font-size: 1.2em;"><a href="/laporanKeuangan" style="color: #9b59b6; text-decoration: none;">Lihat Laporan Keuangan</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            profileDropdownBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+            document.addEventListener('click', function(event) {
+                if (!profileDropdownBtn.contains(event.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

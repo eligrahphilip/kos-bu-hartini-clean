@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kos Putra Bu Hartini</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing-page">
+
+  <!-- Navbar -->
+  <nav class="navbar-landing">
+    <div class="logo">
+      <img src="icon-rumah.png" alt="Logo Kos Bu Hartini" class="logo-image">
+      <span>KOS BU HARTINI</span>
+    </div>
+
+    <!-- Tombol Toggle (hamburger) -->
+    <button class="menu-toggle" id="menu-toggle">
+      ☰
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="index.html" class="active">BERANDA</a></li>
+      <li><a href="tentang.html">TENTANG</a></li>
+      <li><a href="fasilitas.html">FASILITAS</a></li>
+      <li><a href="kontak.html">KONTAK</a></li>
+      <li><a href="login.html">LOGIN</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-landing">
+    <div class="hero-content">
+      <h1>Tempat Tinggal Nyaman Dekat UMN</h1>
+      <p>Kos Putra Bu Hartini menyediakan kamar bersih, luas, dan fasilitas lengkap untuk mahasiswa.</p>
+      <a href="tentang.html" class="btn-landing">Lihat Selengkapnya</a>
+    </div>
+  </section>
+
+  <!-- Tentang (Preview) -->
+  <section class="section-landing">
+    <h2>Tentang Kos Putra Bu Hartini</h2>
+    <p>Berlokasi strategis di kawasan <strong>Beringin Lestari</strong> dekat <strong>Universitas Multimedia Nusantara (UMN)</strong>,
+    kos ini berawal dari ide <strong>Pak Harjo</strong>, seorang dosen UMN, untuk membantu mahasiswa mendapatkan tempat tinggal terjangkau dan nyaman.</p>
+    <p>Kos memiliki <strong>16 kamar</strong> (9 di bawah, 7 di atas) berukuran <strong>3x3 meter</strong>,
+    lebih luas dari standar umum, dilengkapi perabot lengkap dan jendela luar untuk sirkulasi udara baik.</p>
+    <a href="tentang.html" class="btn-landing-secondary">Baca Selengkapnya</a>
+  </section>
+
+  <!-- Fasilitas (Preview) -->
+  <section class="section-landing bg-light">
+    <h2>Fasilitas</h2>
+    <div class="grid-landing">
+      <div class="card-landing"><h3>🛏️ Kamar Nyaman</h3><p>Dilengkapi tempat tidur, meja belajar, dan lemari pakaian.</p></div>
+      <div class="card-landing"><h3>🚿 Kamar Mandi Bersih</h3><p>7 kamar mandi luar yang terawat setiap hari.</p></div>
+      <div class="card-landing"><h3>🍳 Dapur & Kulkas</h3><p>Dapur bersama dengan kompor, gas, dan kulkas dua pintu.</p></div>
+      <div class="card-landing"><h3>📶 Wi-Fi Cepat</h3><p>Akses internet stabil untuk mendukung kegiatan belajar.</p></div>
+      <div class="card-landing"><h3>🛵 Parkir Luas</h3><p>Area parkir dapat menampung hingga 16 motor.</p></div>
+      <div class="card-landing"><h3>🤝 Lingkungan Ramah</h3><p>Suasana bersih, nyaman, dan saling menghargai antar penghuni.</p></div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="fasilitas.html" class="btn-landing-secondary">Lihat Semua Fasilitas</a>
+    </div>
+  </section>
+
+  <!-- Kontak (Preview) -->
+  <section class="section-landing">
+    <h2>Kontak Kami</h2>
+    <p>📍 Kawasan Beringin Lestari, dekat UMN</p>
+    <p>📞 Hubungi Admin: <a href="https://wa.me/6281398051998" target="_blank" class="whatsapp">+62 813-9805-1998</a></p>
+    <p>🕒 Jam Operasional: 08.00 - 20.00 WIB</p>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="kontak.html" class="btn-landing">Hubungi Kami</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-landing">
+    <p>&copy; 2025 Kos Putra Bu Hartini | "Yang penting, penghuni merasa nyaman."</p>
+  </footer>
+
+  <!-- JavaScript Toggle Menu -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar-landing');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>

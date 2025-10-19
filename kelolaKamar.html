@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Kamar | Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li><a href="/dashboardAdmin">Dashboard Admin</a></li>
+            <li class="active"><a href="/kelolaKamar">Kelola Kamar</a></li>
+            <li><a href="/laporanKeuanganAdmin">Laporan Keuangan</a></li>
+            <li><a href="/daftarUser">Daftar Pengguna</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header class="header-bar">
+            <h1>Kelola Kamar Kost</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">{{username|slice:0:1|upper}}</div>
+                    <div>{{username}}</div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profileAdmin">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="summary-cards">
+            <!-- Kartu untuk Tambah Tipe Kamar Baru -->
+            <div class="card" style="width: 100%; margin-bottom: 25px;">
+                <div class="card-icon" style="background-color: #27ae60;">🆕</div>
+                <h3>Tambah Tipe Kamar Baru</h3>
+                <form action="/kelolaKamar/add" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    <label for="tipeKamar" style="font-weight: 600;">Nama Tipe Kamar:</label>
+                    <input type="text" id="tipeKamar" name="tipe_kamar" required style="padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                    
+                    <label for="hargaKamar" style="font-weight: 600;">Harga:</label>
+                    <input type="number" id="hargaKamar" name="harga_kamar" min="0" required style="padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                    
+                    <label for="deskripsiKamar" style="font-weight: 600;">Deskripsi:</label>
+                    <textarea id="deskripsiKamar" name="deskripsi_kamar" required style="padding: 10px; border-radius: 8px; border: 1px solid #ddd;"></textarea>
+
+                    <label for="jumlahTersedia" style="font-weight: 600;">Jumlah Kamar:</label>
+                    <input type="number" id="jumlahTersedia" name="jumlah_tersedia" min="0" required style="padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                    
+                    <button type="submit" style="padding: 12px; background-color: var(--green-success); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Tambah Kamar</button>
+                </form>
+            </div>
+            
+            <!-- Kartu untuk Daftar Tipe Kamar (konten dinamis dari app.js) -->
+            <div class="card" style="width: 100%;">
+                <div class="card-icon" style="background-color: #e67e22;">✏️</div>
+                <h3>Daftar Tipe Kamar</h3>
+                <!-- Kamar-container-admin akan berisi daftar kamar dengan opsi Update/Delete -->
+                <div class="kamar-container-admin" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+                    {{kamarList}}
+                </div>
+            </div>
+        </div>
+
+        <a href="/dashboardAdmin" class="back-link" style="display: block; text-align: center; margin-top: 20px;">Kembali ke Dashboard</a>
+    </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = '{{username}}';
+            const initial = username.charAt(0).toUpperCase();
+            const avatar = document.querySelector('.user-avatar');
+            if (avatar) {
+                 avatar.textContent = initial;
+            }
+            const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            profileDropdownBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+            document.addEventListener('click', function(event) {
+                if (!profileDropdownBtn.contains(event.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

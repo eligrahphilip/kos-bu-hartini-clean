@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilihan Tipe Kamar Kost</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="main-app-container">
+    <aside class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li class="active"><a href="/TipeKamar">Tipe Kamar</a></li>
+            <li><a href="/laporanKeuangan">Laporan Keuangan</a></li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <header class="header-bar">
+            <h1>Pilihan Tipe Kamar Kost</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">{{username|slice:0:1|upper}}</div>
+                        <span>{{username}}</span>
+                    </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="kamar-page-container">
+            <div class="filter-container">
+                <form action="/TipeKamar" method="GET" class="search-form">
+                    <input type="text" name="search" placeholder="Cari kamar berdasarkan tipe atau fasilitas..." value="{{searchQuery}}">
+                    <button type="submit" class="search-btn">Cari</button>
+                </form>
+            </div>
+            
+            <div class="kamar-container">
+                {{kamarList}}
+            </div>
+
+        <div class="kamar-page-container">
+            <div class="kamar-container">
+                <div class="kamar-item sold-out">
+                    <img src="https://via.placeholder.com/350x200?text=Kamar+Biasa" alt="Gambar Kamar Biasa">
+                    <h3>Kamar Biasa</h3>
+                    <p class="harga">Rp 1.000.000 / bulan</p>
+                    <p>Kamar nyaman dengan fasilitas esensial. Kamar mandi dalam.</p>
+                    <ul class="fasilitas">
+                        <li><i class="fas fa-check"></i> Ukuran Standar</li>
+                        <li><i class="fas fa-check"></i> Kamar Mandi Dalam</li>
+                        <li><i class="fas fa-check"></i> Fasilitas: AC, Lemari, Meja Belajar, Wifi</li>
+                    </ul>
+                    <button class="btn-pesan sold-out-btn">Sold Out</button>
+                </div>
+
+                <div class="kamar-item sold-out">
+                    <img src="https://via.placeholder.com/350x200?text=Kamar+Besar" alt="Gambar Kamar Besar">
+                    <h3>Kamar Besar</h3>
+                    <p class="harga">Rp 1.200.000 / bulan</p>
+                    <p>Ruangan lebih luas. Kamar mandi luar untuk 2 kamar.</p>
+                    <ul class="fasilitas">
+                        <li><i class="fas fa-check"></i> Ukuran Standar</li>
+                        <li><i class="fas fa-check"></i> Kamar Mandi Dalam</li>
+                        <li><i class="fas fa-check"></i> Fasilitas: AC, Lemari, Meja Belajar, Wifi</li>
+                    </ul>
+                    <button class="btn-pesan sold-out-btn">Sold Out</button>
+                </div>
+            </div>
+
+            <div class="fasilitas-umum">
+                <h2>Fasilitas Kost</h2>
+                <ul>
+                    <li>Terdapat 3 lantai, dengan 7 kamar per lantai.</li>
+                    <li>2 tempat parkir motor.</li>
+                    <li>1 dapur bersama.</li>
+                    <li>Lantai atas untuk jemuran pakaian.</li>
+                </ul>
+            </div>
+            
+            <a href="/dashboard" class="kembali-link">Kembali ke Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        profileDropdownBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            dropdownContent.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!profileDropdownBtn.contains(event.target)) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+    });
+</script>
+</body>
+</html>

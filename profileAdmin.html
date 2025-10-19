@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="main-app-container">
+    <aside class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li><a href="/dashboardAdmin">Dashboard</a></li>
+            <li><a href="/kelolaKamar">Kelola Kamar</a></li>
+            <li><a href="/laporanKeuanganAdmin">Laporan Keuangan</a></li>
+            <li><a href="/daftarUser">Daftar Pengguna</a></li>
+            <li class="active"><a href="/profileAdmin">Profil Saya</a></li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <header class="header-bar">
+            <h1>Profil Admin</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">{{username|slice:0:1|upper}}</div>
+                    <div>{{username}}</div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profileAdmin">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="summary-cards">
+            <div class="card" style="width: 100%;">
+                <div class="card-icon" style="background-color: var(--secondary-color);">👑</div>
+                
+                <div class="profile-form" style="box-shadow: none; max-width: none; margin: 0; padding: 0;">
+                    <h2>Informasi Profil</h2>
+                    <form action="/profile/update" method="POST">
+                        <div>
+                            <label for="first_name">Nama Depan</label>
+                            <input type="text" id="first_name" name="first_name" value="{{firstName}}" required>
+                        </div>
+                        <div>
+                            <label for="last_name">Nama Belakang</label>
+                            <input type="text" id="last_name" name="last_name" value="{{lastName}}" required>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="{{email}}" required>
+                        </div>
+                        <div>
+                            <label for="phone_number">Nomor Telepon</label>
+                            <input type="tel" id="phone_number" name="phone_number" value="{{phoneNumber}}">
+                        </div>
+                        <div style="margin-bottom: 25px;">
+                            <label for="role">Peran</label>
+                            <input type="text" id="role" name="role" value="{{role}}" disabled style="background-color: var(--gray-light); font-weight: bold; color: var(--primary-color);">
+                        </div>
+                        <button type="submit" class="btn-submit-form">Simpan Perubahan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = '{{username}}';
+            const initial = username.charAt(0).toUpperCase();
+            const avatar = document.querySelector('.user-avatar');
+            if (avatar) {
+                 avatar.textContent = initial;
+            }
+            const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+
+            profileDropdownBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+            document.addEventListener('click', function(event) {
+                if (!profileDropdownBtn.contains(event.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

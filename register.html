@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun Kost</title>
+    <style>
+        /* ================================================== */
+        /* Gaya CSS untuk Halaman Daftar */
+        /* ================================================== */
+        
+        :root {
+            --primary-blue: #3498db;    
+            --dark-blue: #2c3e50;       
+            --background-start: #f0f4f8; 
+            --background-end: #c8d8e8;   
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .register-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
+            width: 100%;
+            max-width: 550px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .register-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .form-group {
+            flex-grow: 1;
+            flex-basis: calc(50% - 10px); 
+            text-align: left;
+        }
+        
+        .form-group.full-width {
+            flex-basis: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, var(--primary-blue), #2980b9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.2s, box-shadow 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        button[type="submit"]:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 25px;
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .form-group {
+                flex-basis: 100%; 
+            }
+        }
+        @media (max-width: 450px) {
+            .register-card {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-card">
+        <h1>Daftar Akun Kost</h1>
+        
+        <form action="/register" method="post">
+            <div class="form-group full-width">
+                <label for="username">Nama Pengguna (Username):</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="password">Kata Sandi (Password):</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">Nama Depan:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="last_name">Nama Belakang:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Tanggal Lahir:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class ="form-group">
+                <label for="nomor_telepon">Nomor Telepon</label>
+                <input type="text" id="nomor_telepon" name="nomor_telepon" required>
+
+            </div>
+            
+            <div class="form-group">
+                <label for="role">Peran (Jenis Akun):</label>
+                <select id="role" name="role" required>
+                    <option value="user">Pencari Kost</option>
+                </select>
+            </div>
+            
+            <button type="submit">Daftar Sekarang</button>
+        </form>
+        
+        <a href="/login" class="login-link">Sudah punya akun kost? Masuk di sini.</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Kos Bu Hartini</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <!-- Navbar -->
+    <nav class="navbar-landing">
+        <div class="logo">
+            <img src="icon-rumah.png" alt="Logo Kos Bu Hartini" class="logo-image">
+            <span>KOS BU HARTINI</span>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="tentang.html">TENTANG</a></li>
+            <li><a href="fasilitas.html">FASILITAS</a></li>
+            <li><a href="kontak.html">KONTAK</a></li>
+            <li><a href="login.html" class="active">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <!-- Background dengan gambar yang sama -->
+    <div class="login-background">
+        <!-- Form Login -->
+        <section class="section-landing">
+            <div class="login-container">
+                <div class="login-card">
+                    <h2>Masuk ke Akun</h2>
+                    <p class="subtitle">Silakan masuk untuk mengakses akun kost Anda</p>
+
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label for="username">Nama Pengguna:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Kata Sandi:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-login">Masuk</button>
+                    </form>
+
+                    <div class="login-links">
+                        <a href="/register" class="register-link">Belum punya akun? Daftar di sini</a>
+                        <a href="/guest" class="guest-link">Masuk Sebagai Tamu</a>
+                    </div>
+                    
+                    <hr class="separator">
+                    
+                    <a href="/auth/google" class="google-login">
+                        <div class="google-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.56 12.2c0-.79-.07-1.54-.2-2.28h-9.28v4.29h5.36c-.23 1.25-.97 2.37-2.09 3.12v2.79h3.58c2.1-1.94 3.32-4.8 3.32-8.02z" fill="#4285F4"/>
+                                <path d="M12.9 22.56c2.9 0 5.34-1.01 7.12-2.75l-3.58-2.79c-.99.66-2.25 1.07-3.54 1.07-2.73 0-5.06-1.84-5.89-4.32H3.45v2.85C5.17 20.9 8.7 22.56 12.9 22.56z" fill="#34A853"/>
+                                <path d="M7.01 13.91c-.19-.55-.3-1.14-.3-1.76s.11-1.21.3-1.76V7.54H3.45c-.47.96-.75 2.06-.75 3.26s.28 2.29.75 3.26l3.56 2.85z" fill="#FBBC04"/>
+                                <path d="M12.9 6.27c1.58 0 2.98.54 4.09 1.58L19.46 5.5C17.68 3.73 15.34 2.84 12.9 2.84c-4.19 0-7.72 1.66-9.45 4.34l3.56 2.85c.83-2.48 3.16-4.32 5.89-4.32z" fill="#EA4335"/>
+                            </svg>
+                        </div>
+                        Masuk dengan Google
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-landing">
+        <p>&copy; 2025 Kos Putra Bu Hartini | "Yang penting, penghuni merasa nyaman."</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar-landing');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

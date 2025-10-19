@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Kos Putra Bu Hartini</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing-page">
+    <!-- Navbar -->
+    <nav class="navbar-landing">
+        <div class="logo">
+            <img src="icon-rumah.png"Logo Kos Bu Hartini" class="logo-image">
+            <span>KOS BU HARTINI</span>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="tentang.html">TENTANG</a></li>
+            <li><a href="fasilitas.html">FASILITAS</a></li>
+            <li><a href="kontak.html" class="active">KONTAK</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section untuk Kontak -->
+    <section class="hero-landing">
+        <div class="hero-content">
+            <h1>Hubungi Kami</h1>
+            <p>Kami siap membantu Anda mendapatkan informasi lebih lanjut</p>
+        </div>
+    </section>
+
+    <!-- Konten Kontak -->
+    <section class="section-landing">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Informasi Kontak</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Alamat</h3>
+                        <p>Kawasan Beringin Lestari<br>Jl. Beringin Raya No. 15<br>Kelurahan Beringin, Kecamatan Kelapa Dua<br>Tangerang, Banten 15810</p>
+                        <small>📍 Dekat Universitas Multimedia Nusantara (UMN)</small>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h3>Telepon & WhatsApp</h3>
+                        <p>
+                            <a href="https://wa.me/6281398051998" target="_blank" class="whatsapp-link">
+                                +62 813-9805-1998
+                            </a>
+                        </p>
+                        <small>Klik untuk chat langsung via WhatsApp</small>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div class="contact-details">
+                        <h3>Jam Operasional</h3>
+                        <p>Senin - Minggu: 08.00 - 20.00 WIB</p>
+                        <small>Kami melayani kunjungan dan konsultasi setiap hari</small>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>kosbuhartini@gmail.com</p>
+                        <small>Balasan maksimal 24 jam</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <h2>Lokasi Kami</h2>
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <h3>📍 Peta Lokasi</h3>
+                        <p>Kos Putra Bu Hartini berada di kawasan Beringin Lestari, 
+                        sekitar 5 menit berkendara dari Kampus UMN.</p>
+                        <div class="map-actions">
+                            <a href="https://maps.google.com/?q=Beringin+Lestari+Tangerang" 
+                               target="_blank" class="map-btn">
+                                Buka di Google Maps
+                            </a>
+                            <a href="https://waze.com/ul?q=Beringin%20Lestari%20Tangerang" 
+                               target="_blank" class="map-btn">
+                                Buka di Waze
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Kunjungan -->
+    <section class="section-landing bg-light">
+        <h2>Tips untuk Kunjungan</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h3>📅 Jadwalkan Kunjungan</h3>
+                <p>Hubungi terlebih dahulu untuk memastikan kami sedang ada di lokasi</p>
+            </div>
+            <div class="tip-card">
+                <h3>🧾 Siapkan Dokumen</h3>
+                <p>Bawa KTP dan kartu mahasiswa untuk proses administrasi yang lebih cepat</p>
+            </div>
+            <div class="tip-card">
+                <h3>🚗 Akses Mudah</h3>
+                <p>Lokasi strategis dengan akses transportasi yang mudah</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-landing">
+        <p>&copy; 2025 Kos Putra Bu Hartini | "Yang penting, penghuni merasa nyaman."</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar-landing');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir Pendaftaran Kamar Kost</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Container Formulir */
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #7f8c8d;
+            margin-top: 0;
+        }
+
+        /* Styling Formulir */
+        form {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        /* Gaya Tampilan Jadwal yang Dipilih */
+        .selected-jadwal {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .selected-jadwal strong {
+            color: #2c3e50;
+        }
+
+        /* Tombol */
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Formulir Pendaftaran Kamar</h1>
+        <p>Silakan isi detail kamar kost yang ingin Anda sewa.</p>
+        
+        <form action="/submitForm" method="post">
+            
+            <label for="nama_lengkap">Nama Lengkap</label>
+            <input type="text" id="nama_lengkap" name="nama_lengkap" value="{{nama}}" required disabled>
+            
+            <label for="email_pendaftar">Email</label>
+            <input type="email" id="email_pendaftar" name="email_pendaftar" value="{{email}}" required disabled>
+            
+            <div class="selected-jadwal">
+                <p>Anda akan mendaftar untuk kamar:</p>
+                <p><strong>Tanggal Sewa:</strong> {{tanggal_sewa}}</p>
+                <p><strong>Tipe Kamar:</strong> {{tipe_kamar}}</p>
+                <input type="hidden" name="tanggal_sewa" value="{{tanggal_sewa}}">
+                <input type="hidden" name="tipe_kamar" value="{{tipe_kamar}}">
+            </div>
+            
+            <button type="submit">Sewa Sekarang</button>
+        </form>
+        <a href="/dashboard" class="back-link">Kembali ke Halaman Utama</a>
+    </div>
+
+</body>
+</html>

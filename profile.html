@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya | {{username}}</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sistem Kost</h2>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/TipeKamar">Tipe Kamar</a></li>
+            <li><a href="/laporanKeuangan">Laporan Keuangan</a></li>
+            <li class="active"><a href="/profile">Profil Saya</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Profil Saya</h1>
+            <div class="profile-dropdown">
+                <div class="user-info" id="profile-dropdown-btn">
+                    <div class="user-avatar">{{username|slice:0:1|upper}}</div>
+                    <div>{{username}}</div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profil Saya</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-form">
+            <h2>Detail Akun Kost</h2>
+            <form action="/profile/update" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="{{username}}" disabled>
+                </div>
+                <div>
+                    <label for="firstName">Nama Depan:</label>
+                    <input type="text" id="firstName" name="first_name" value="{{firstName}}">
+                </div>
+                <div>
+                    <label for="lastName">Nama Belakang:</label>
+                    <input type="text" id="lastName" name="last_name" value="{{lastName}}">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{email}}">
+                </div>
+                <div>
+                    <label for="phoneNumber">Nomor Telepon:</label>
+                    <input type="tel" id="phoneNumber" name="phone_number" value="{{phoneNumber}}">
+                </div>
+                <button type="submit">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileDropdownBtn = document.getElementById('profile-dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            profileDropdownBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+            document.addEventListener('click', function(event) {
+                if (!profileDropdownBtn.contains(event.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
